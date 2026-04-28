@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Learnix Research Lab</title>
+<link rel="icon" type="Certification\logo.png" sizes="32x32" href="logo.png">
+<link rel="icon" type="Certification\logo.png" sizes="16x16" href="logo.png">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
 <style>
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -230,6 +232,35 @@
     .apply-steps{gap:0.5rem}
     .hero-stats{grid-template-columns:1fr 1fr}
   }
+  .menu-toggle {
+  display: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+
+@media(max-width:900px){
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 68px;
+    left: 0;
+    right: 0;
+    background: #0d1b3e;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    display: none;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+}
 </style>
 </head>
 <body>
@@ -237,6 +268,7 @@
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
     <a href="#home" class="nav-logo">
       <div class="nav-logo-mark">LR</div>
       <span class="nav-logo-text">LEARNIX <span>LAB</span></span>
@@ -783,7 +815,7 @@
           <li><a href="#research">Cognitive Science</a></li>
           <li><a href="#research">AI Ethics</a></li>
           <li><a href="#research">EdTech</a></li>
-          <li><a href="learnix=certificat-verify">Cerficate Verify</a></li>
+          <li><a href="learnix-certificate-verify.html">Cerficate Verify</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -826,6 +858,9 @@
     this.style.background='linear-gradient(90deg,#059669,#10b981)';
     setTimeout(()=>{this.textContent='Send Message →';this.style.background=''},3000)
   });
+  function toggleMenu() {
+  document.querySelector('.nav-links').classList.toggle('active');
+}
 </script>
 </body>
 </html>
